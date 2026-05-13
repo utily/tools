@@ -1,0 +1,52 @@
+{
+	"name": "__PACKAGE_NAME__",
+	"version": "0.1.0",
+	"description": "__PACKAGE_DESCRIPTION__",
+	"author": "__PACKAGE_AUTHOR__",
+	"license": "__PACKAGE_LICENSE__",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/__ORGANIZATION__/__REPOSITORY__.git"
+	},
+	"bugs": {
+		"url": "https://github.com/__ORGANIZATION__/__REPOSITORY__/issues"
+	},
+	"homepage": "https://github.com/__ORGANIZATION__/__REPOSITORY__",
+	"type": "module",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
+		},
+		"./node": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/index.node.js",
+			"default": "./dist/index.node.js"
+		}
+	},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	],
+	"git": {
+		"tagName": "release-${version}"
+	},
+	"github": {
+		"release": true
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "rimraf dist node_modules coverage",
+		"verify": "npm run build && npm audit --omit=dev"
+	},
+	"devDependencies": {
+		"rimraf": "__RIMRAF_VERSION__",
+		"typescript": "__TYPESCRIPT_VERSION__",
+		"@types/node": "__TYPES_NODE_VERSION__"
+	},
+	"dependencies": {}
+}
